@@ -7,4 +7,3 @@ loop {                           # Servers run forever
    client.puts "Closing the connection. Bye!"
    client.close                  # Disconnect from the client
 }
-© 2021 GitHub, Inc.
