@@ -1,5 +1,10 @@
-#!/usr/bin/ruby
+require 'socket'                 # Get sockets from stdlib
 
-puts "HTTP/1.0 200 OK"
-puts "Content-type: text/html\n\n"
-puts "<html><body>This is a test</body></html>"
+server = TCPServer.open(3000)    # Socket to listen on port 2000
+loop {                           # Servers run forever
+   client = server.accept        # Wait for a client to connect
+   client.puts(Time.now.ctime)   # Send the time to the client
+   client.puts "Closing the connection. Bye!"
+   client.close                  # Disconnect from the client
+}
+© 2021 GitHub, Inc.
